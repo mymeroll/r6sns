@@ -1,0 +1,45 @@
+@charset "UTF-8";
+/* CSS Document */
+/*detail*/
+.top-search__box{
+	padding-bottom: 20px;
+}
+.top-search__left{
+	width:80%;
+	float:left;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+.top-search__right{
+	width:15%;
+	float:right;
+	box-sizing: border-box;
+	padding: 3px;
+}
+/*search*/
+.search-action__box{
+	width:100%;
+}
+.search-left{
+	width:50%;
+	float:left;
+	box-sizing: border-box;
+	font-size: 14px;
+	padding: 10px 0;
+}
+.search-right{
+	width:50%;
+	float:right;
+	box-sizing: border-box;
+	padding: 15px 3px;
+}
+.follow-left{
+	width:50%;
+	float:left;
+	box-sizing: border-box;
+}
+.follow-right{
+	width:50%;
+	float:right;
+	box-sizing: border-box;
+}

@@ -23,7 +23,28 @@
                                     </span>
                                 @endif
                             </div>
-                        </div>	
+                        </div>
+						
+						<div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('ランク') }}</label>
+
+                            <div class="col-md-6">
+								<select id="rank" class="form-control{{ $errors->has('rank') ? ' is-invalid' : '' }}" name="rank" value="{{ old('rank') }}" required autofocus>
+									<option value="Diamond">Diamond</option>
+									<option value="Platinum">Platinum</option>
+									<option value="Gold">Gold</option>
+									<option value="Silver">Silver</option>
+									<option value="Bronze">Bronze</option>
+									<option value="Copper">Copper</option>
+								</select>
+								
+                                @if ($errors->has('rank'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('rank') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('パスワード') }}</label>
