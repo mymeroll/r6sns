@@ -57,14 +57,19 @@
 							<!--<li class="nav-item" style="line-height: 3;">
                                 <a href="/notice"><i class="fa fa-bell" aria-hidden="true"></i></a>
                             </li>-->
+								
 							<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-									<a class="dropdown-item" href="/">投稿する</a>
                                     <a class="dropdown-item" href="/detail">プロフィール</a>
+									<a class="dropdown-item" href="/detail-edit">プロフィール編集</a>
+									<a class="dropdown-item" href="/search-user">ユーザー検索</a>
+									<a class="dropdown-item" href="/index">投稿する</a>
+									<!--<a class="dropdown-item" href="/follow">フォロー</a>
+									<a class="dropdown-item" href="/message">メッセージ</a>-->
 									<a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

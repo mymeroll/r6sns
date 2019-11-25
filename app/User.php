@@ -32,6 +32,12 @@ class User extends Authenticatable
 	
 	public function connections()
     {
-        return $this->hasMany('Connection');
+        return $this->hasMany('App\Connection');
+    }
+    public function posts() {
+        return $this->hasMany('App\Post');
+    }
+	public function messages() {
+        return $this->hasMany('App\Message');
     }
 }

@@ -4,6 +4,12 @@
     <div class="container mt-4">
         <div class="border p-4">
 			<div class="mb-4 text-right">
+				<a class="btn btn-primary" href="/index">
+					投稿一覧に戻る
+				</a>
+				<a class="btn btn-primary" href="">
+					更新
+				</a>
 				<!--<a class="btn btn-primary" href="{{ route('posts.edit', ['post' => $post]) }}">
 					編集する
 				</a>
@@ -19,6 +25,7 @@
 			</form>-->
 			</div>
             <h1 class="h5 mb-4">
+				<a href="../detail/{{$post->user->id}}">{{ $post->user->name }}</a>
                 {{ $post->title }}
             </h1>
 
@@ -27,12 +34,15 @@
             </p>
 
             <section>
-                <h2 class="h5 mb-4">
-                    コメント
-                </h2>
 				<form class="mb-4" method="POST" action="{{ route('comments.store') }}">
 				@csrf
 
+				<input
+					name="user_id"
+					type="hidden"
+					value="{{ $user->id }}"
+				>
+					
 				<input
 					name="post_id"
 					type="hidden"
@@ -40,9 +50,6 @@
 				>
 
 				<div class="form-group">
-					<label for="body">
-						本文
-					</label>
 
 					<textarea
 						id="contents"
@@ -59,13 +66,14 @@
 
 				<div class="mt-4">
 					<button type="submit" class="btn btn-primary">
-						コメントする
+						返信する
 					</button>
 				</div>
 				</form>
                 @forelse($post->comments as $comment)
                     <div class="border-top p-4">
                         <time class="text-secondary">
+							<a href="../detail/{{ $comment->user->id }}">{{ $comment->user->name }}</a>
                             {{ $comment->created_at->format('Y.m.d H:i') }}
                         </time>
                         <p class="mt-2">
@@ -73,7 +81,7 @@
                         </p>
                     </div>
                 @empty
-                    <p>コメントはまだありません。</p>
+                    <p>返信はまだありません。</p>
                 @endforelse
             </section>
         </div>

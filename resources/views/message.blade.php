@@ -8,21 +8,7 @@
                 <div class="card-header">メッセージ</div>
 				<div class="card-body">
 					<div class="container">
-						<div class="row"> 
-							<div class="message-left">
-								<form method="GET" action="/connection" class="search-right"> 
-									<input type="text">
-									<p>ユーザー名：{{$user->name}}</p>
-									<button type="submit" class="btn btn-outline-primary">送信</button>
-								</form>
-							</div>
-							<div class="message-right">
-								<form method="GET" action="/connection" class="search-right"> 
-									<input type="text">
-									<p>ユーザー名：{{$user->name}}</p>
-									<button type="submit" class="btn btn-outline-primary">送信</button>
-								</form>
-							</div>
+						<div class="row">
 						</div>	 
 					</div>
 				</div>	

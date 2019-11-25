@@ -3,13 +3,24 @@
 @section('content')
     <div class="container mt-4">
 	<div class="mb-4">
-		<a href="{{ route('posts.create') }}" class="btn btn-primary">
-			投稿を新規作成する
-		</a>
+		<div style="padding-bottom:20px;">
+			<a href="{{ route('posts.create') }}" class="btn btn-primary">
+				投稿の新規作成
+			</a>
+		</div>
+		<div>
+			<form method="GET" action="/search-post" > 
+				<div class="clearfix">
+					<input type="text" name="keyword" required placeholder="投稿を検索" class="top-search__left">
+					<button type="submit" class="btn btn-outline-success top-search__right">検索</button>
+				</div>
+			</form>
+		</div>	
 	</div>
         @foreach ($posts as $post)
             <div class="card mb-4">
                 <div class="card-header">
+					<a href="detail/{{$post->user->id}}">{{ $post->user->name }}</a>
                     {{ $post->title }}
                 </div>
                 <div class="card-body">
@@ -28,7 +39,7 @@
 
                     @if ($post->comments->count())
                         <span class="badge badge-primary">
-                            コメント {{ $post->comments->count() }}件
+                            返信 {{ $post->comments->count() }}件
                         </span>
                     @endif
                 </div>

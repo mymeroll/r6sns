@@ -9,8 +9,20 @@
 
             <form method="POST" action="{{ route('posts.store') }}">
                 @csrf
-
                 <fieldset class="mb-4">
+                        <input
+                            id="user_id"
+                            name="user_id"
+                            class="form-control {{ $errors->has('user_id') ? 'is-invalid' : '' }}"
+                            value="{{$user->id}}"
+                            type="hidden"
+                        >
+                        @if ($errors->has('user_id'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('user_id') }}
+                            </div>
+                        @endif
+					
                     <div class="form-group">
                         <label for="title">
                             タイトル

@@ -18,16 +18,14 @@
 							<div class="follow-left">  
 							@if(count($connection) > 0) 
 							@foreach($connection as $connect)  
-								<p>自分のID{{ $connect->user_id }}</p>
-								<p>フォロー先のID{{ $connect->connection_user_id }}</p>
+								<p>{{ $connect->connection_user_id }}</p>
 							@endforeach	
 							@endif
 							</div>	
 							<div class="follow-right">  
 							@if(count($connections) > 0) 
 							@foreach($connections as $connection) 
-								<p>自分のID{{ $connection->connection_user_id }}</p>
-								<p>フォロワーのID{{ $connection->user_id }}</p>
+								<p>{{ $connection->user->name }}</p>
 							@endforeach	
 							@endif
 							</div>	
