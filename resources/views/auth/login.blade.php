@@ -23,7 +23,6 @@
                                     </span>
                                 @endif
                             </div>
-							※名前にはプレーステーションIDを入力してください。
                         </div>
 
                         <div class="form-group row">

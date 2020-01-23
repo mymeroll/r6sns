@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Follower;
 use App\Connection;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -53,4 +54,53 @@ class ConnectionController extends Controller
 		DB::table('connections')->where('user_id', '=', $request->user_id)->where('connection_user_id', '=', $user->id)->update($param);
 		return redirect('/notice');
 	}	
+	 public function follow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if(!$is_following) {
+            // フォローしていなければフォローする
+            $follower->follow($user->id);
+            return back();
+        }
+    }
+
+    // フォロー解除
+    public function unfollow(User $user)
+    {
+        $follower = auth()->user();
+        // フォローしているか
+        $is_following = $follower->isFollowing($user->id);
+        if($is_following) {
+            // フォローしていればフォローを解除する
+            $follower->unfollow($user->id);
+            return back();
+        }
+    }
+	 public function evaluation(User $user)
+    {
+        $evaluater = auth()->user();
+        // フォローしているか
+        $is_evaluation = $evaluater->isEvaluation($user->id);
+		 
+        if(!$is_evaluation) {
+            // フォローしていなければフォローする
+            $evaluater->evaluation($user->id);
+            return back();
+        }
+    }
+
+    // フォロー解除
+    public function unevaluation(User $user)
+    {
+        $evaluater = auth()->user();
+        // フォローしているか
+        $is_evaluation = $evaluater->isEvaluation($user->id);
+        if($is_evaluation) {
+            // フォローしていればフォローを解除する
+            $evaluater->unevaluation($user->id);
+            return back();
+        }
+    }	
 }

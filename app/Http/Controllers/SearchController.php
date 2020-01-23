@@ -24,6 +24,12 @@ class SearchController extends Controller
         }
         return view('search', ['users' => $users],['Authusers' => $Authusers],['connection' => $connection]);
     }
+	public function evaluation(Request $request){
+		$Authusers = Auth::user();   #ログインユーザー情報を取得します。
+		$connection = Connection::where('user_id', '=', $Authusers->id)->get();
+		$users = User::where('id', '!=', $Authusers->id)->paginate(10);
+        return view('evaluation', ['users' => $users],['Authusers' => $Authusers],['connection' => $connection]);
+    }	
 	public function searchrank(Request $request){
 		$Authusers = Auth::user();   #ログインユーザー情報を取得します。
         if($request->has('keywordrank')) {

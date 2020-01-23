@@ -20,6 +20,37 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 	 <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 	<link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
+	<style>
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.evaluation input[type='radio']{
+  display: none;
+}
+.evaluation label{
+  position: relative;
+  padding: 10px 10px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 50px;
+}
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
+}
+</style>
 </head>
 <body>
     <div id="app">
@@ -42,9 +73,9 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-							<!--<li class="nav-item" style="line-height: 3;">
+							<li class="nav-item" style="line-height: 3;">
                                 <a href="/"><i class="fa fa-bell" aria-hidden="true"></i></a>
-                            </li>-->
+                            </li>
 							<li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
                             </li>
@@ -54,9 +85,9 @@
                                 @endif
                             </li>
                         @else
-							<!--<li class="nav-item" style="line-height: 3;">
+							<li class="nav-item" style="line-height: 3;">
                                 <a href="/notice"><i class="fa fa-bell" aria-hidden="true"></i></a>
-                            </li>-->
+                            </li>
 								
 							<li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -66,6 +97,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="/detail">プロフィール</a>
 									<a class="dropdown-item" href="/detail-edit">プロフィール編集</a>
+									<a class="dropdown-item" href="/follow">フォロー一覧</a>
 									<a class="dropdown-item" href="/search-user">ユーザー検索</a>
 									<a class="dropdown-item" href="/index">投稿する</a>
 									<!--<a class="dropdown-item" href="/follow">フォロー</a>

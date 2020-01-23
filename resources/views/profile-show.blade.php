@@ -13,6 +13,11 @@
 									<p>ユーザー名：{{ $profile->name }}<br>ランク：{{ $profile->rank }}<br>自己紹介：{{ $profile->profile }}</p>
 								</div>	
 						  </div>
+						<a href="/ev/{{$profile->id}}">
+						<button type="submit" class="btn btn-primary">
+								{{ __('評価する') }}
+						</button>
+						</a>
 					</div>
                 </div>
             </div>
